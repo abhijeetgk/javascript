@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Find nearest value in javascript</title>
+<script language="javascript">
+// declare some random integer array in javascript
+var intarray=[1,2,3,5,7,9,11,33,44,55,66,77,88];
+// Now this function used to find out the close value in array for given number
+function getClosestNum(num, ar)
+{
+    var i = 0, closest, closestDiff, currentDiff;
+    if(ar.length)
+    {
+        closest = ar[0];
+        for(i;i<ar.length;i++)
+        {           
+            closestDiff = Math.abs(num - closest);
+            currentDiff = Math.abs(num - ar[i]);
+            if(currentDiff < closestDiff)
+            {
+                closest = ar[i];
+            }
+            closestDiff = null;
+            currentDiff = null;
+        }
+        //returns first element that is closest to number
+        return closest;
+    }
+    //no length
+    return false;
+}
+</script>
+</head>
+<body>
+<script language="javascript">
+document.write("Array: "+intarray+"<br>");
+document.write("Value to find 41 <br>");
+var value=getClosestNum(41,intarray);
+document.write("Response Received "+value);
+
+</script>
+</body>
+</html>
+
